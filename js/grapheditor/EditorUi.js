@@ -3181,7 +3181,10 @@ EditorUi.prototype.initCanvas = function()
 			addButton(
 				mxUtils.bind(
 					this,
-					function (evt) {
+					async function (evt) {
+						window.siyuan.attrs['custom-lightbox'] = null;
+                		await window.siyuan.setBlockAttrs();
+
 						const url = new URL(window.location);
 						url.searchParams.delete('lightbox');
 						window.location.href = url.href;
